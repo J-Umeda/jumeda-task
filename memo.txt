@@ -1,0 +1,359 @@
+<?php $query="SELECT * FROM `syain` WHERE 1";
+    ?>
+
+<?php
+    $db_hostname    = 'localhost';
+    $db_username    = 'root';
+    $db_password    = '';
+    $db_name        = 'syainkanri_sisutemu';
+
+    $link = mysqli_connect( $db_hostname, $db_username, $db_password, $db_name);
+
+    if (!$link) {
+        exit( 'エラー : mysqli_connect : ' . mysqli_connect_error() );
+    }
+
+    echo mysqli_get_host_info( $link );
+
+    mysqli_close( $link );?>
+
+<?php
+
+ 
+$sql = 'select id,name,dap_id,seibetu from syain';
+ 
+// ↓queryに$sqlを渡す
+$result = $link->query($sql);
+ 
+// ↓queryの結果は配列で返ってくるのでforeachで取り出す
+foreach($result as $val) {
+    echo $val['id']. '<br />';
+    echo $val['name']. '<br />';
+    echo $val['dap_id']. '<br />';
+    echo $val['seibetu']. '<br />';
+}
+ 
+?>
+
+
+
+
+$link = mysqli_connect( $db_hostname, $db_username, $db_password, $db_name, $tblname);
+
+    if (!$link) {
+        exit( 'エラー : mysqli_connect : ' . mysqli_connect_error() );
+    }
+
+
+
+
+    <!-- <?php
+    $db_hostname    = 'localhost';
+    $db_username    = 'root';
+    $db_password    = 'root';
+    $db_name        = 'syainkanri_sisutemu';
+    $tblname        = 'syain';
+
+// // 変数の初期化
+// $sql = null;
+// $res = null;
+// $dbh = null;
+
+try{ 
+    $dsn='mysql:dbname=syainkanri_sisutemu;host=localhost;cahrset=utf8';
+    // var_dump($dsn);
+    $userO='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ErrMODE_EXCEPTION);
+
+    $sql='SELECT name FROM syain WHERE 1';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(); 
+
+    $dbh=null;
+
+        print'社員一覧<br/><br/>';
+
+        while(true){
+            $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($rec==false){
+                break;
+            }
+            print$rec['name'];
+            print'<br/>';
+        }
+    }
+        catch(Exception $e){
+            echo $e->getMessage();
+            die();
+        }
+// 	// DBへ接続
+// 	$dbh = new PDO("mysql:localhost; dbname=syainkanri_sisutemu; charset=utf8", 'username', 'password');
+
+// 	// SQL作成
+// 	$sql = "SELECT * FROM syain";
+
+// 	// SQL実行
+// 	$res = $dbh->query($sql);
+
+// 	// 取得したデータを出力
+// 	foreach( $res as $value ) {
+// 		echo "$value[name]<br>";
+// 	}
+
+// } catch(PDOException $e) {
+// 	echo $e->getMessage();
+// 	die();
+// }
+
+// // 接続を閉じる
+// $dbh = null;
+
+
+    // $link = mysqli_connect($db_hostname, $db_username, $db_password, $db_name);
+    // // $link = mysqli_connect("localhost", "root", "", "syainkanri_sisutemu");
+
+    // if (!$link) {
+    //     exit( 'エラー : mysqli_connect : ' . mysqli_connect_error() );
+    // }
+
+    // echo mysqli_get_host_info( $link );
+
+    // // 使用するＤＢを選択する。
+    // mysql_select_db( $db_name, $link );
+
+    // // ＳＱＬ文を実行し、結果のリソースを取得。
+    // $res_result = mysql_query("SELECT * from {$tblname}", $limk );
+
+    // // 問い合わせ結果を表示。
+    // while($row = mysql_fetch_array( $res_result, MYSQL_ASSOC )){
+	// var_dump( $row );}
+
+    // $query="SELECT * FROM `syain` WHERE 1";
+
+    // mysqli_close( $link );
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iYell社員管理システム</title>
+  </head>
+  <style>
+    h1{
+        font-size: 30px;
+    }
+    table th{
+        padding:5px 15px;
+    }
+  </style>
+<body>
+    <h1>iYell 社員管理システム</h1>
+    <a href="http://localhost/syainnkannri_sisutemu/touroku.php">新規登録</a>
+        
+    <table width="80%" border='1'>
+        <tr>
+        <th scope="col">id</th>
+
+        <th>社員番号</th>
+            
+        <th name=$name>氏名</th>
+            
+        <th>部署名</th>
+            
+        <th>性別</th>
+            
+        </tr>
+    </table>
+</body>
+</html> -->
+
+接続した値、抽出
+foreach( $rows as $value ) {
+		echo "$value[name]<br>";
+	}
+
+
+    INSERT INTO `syain`(`id`, `syain_id`, `name`, `dap_id`, `seibetu`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])
+
+    DELETE FROM `syain` WHERE 0
+
+
+
+
+    <?php
+// var_dump
+$db_hostname    = 'localhost';
+$db_username    = 'root';
+$db_password    = '';
+$db_name        = 'syainkanri_sisutemu';
+
+$link = mysqli_connect( $db_hostname, $db_username, $db_password, $db_name);
+
+if (!$link) {
+    exit( 'エラー : mysqli_connect : ' . mysqli_connect_error() );
+}
+
+echo mysqli_get_host_info( $link );
+
+mysqli_close( $link );
+
+?>
+         <?php
+            if (isset($_POST["bangou"], $_POST["name"], $_POST["b-name"], $_POST["seibetu"])) {
+                // 2.ポストのデータを変数にしま～す
+                $bangou = $_POST["bangou"];
+                $name = $_POST["name"];
+                $b_name = $_POST["b-name"];
+                $seibetu = $_POST["seibetu"];
+            }
+            
+            // // 5.在庫データベースのそれぞれのテーブルにデータをぶち込む準備をして、それを$regist変数に定義します～
+            // $regist = $link->prepare('INSERT INTO `syain`(`id`, `name`, `dap_id`, `seibetu`) VALUES ([bangou],[name],[b-name],[seibetu])');
+            // var_dump ($regist);
+            // // ぶち込みのルールを決めます(?)
+            // // データベースのそれぞれの引き出しに
+            // //上で定義した変数の値をぶち込みます
+            // //bindParamよくわかってないから後で調べます
+            // $regist->bindParam("bangou", $bangou);
+            // $regist->bindParam("name", $name);
+            // $regist->bindParam("b-name", $b_name);
+            // $regist->bindParam("seibetu", $seibetu);
+            // // さぁ、ぶち込みを実行しましょう
+            // $regist->execute(array($bangou, $name, $b_name, $seibetu));
+            
+            // if ($regist) {
+            //     echo "登録完了したぜYay!";
+            // } else {
+            //     echo "エラーですクソコード書くな！";
+            // }
+            
+            ?>
+
+
+            $params = array(':ID' => $ID,':number' => $number,':name' => $name,':department' => $department ,':sex' => $cheak);
+
+
+
+            <?php
+    // $db_hostname    = 'localhost';
+    // $db_username    = 'root';
+    // $db_password    = '';
+    // $db_name        = 'syainkanri_sisutemu';
+    // $tblname        = 'syain';
+
+// 変数の初期化
+$sql = null;
+$res = null;
+$dbh = null;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// $new_syain_id=$_POST['bangou'];
+// $new_name=$_POST['name'];
+// $new_dap_id=$_POST['b-name'];
+// $new_seibetu=$_POST['seibetu'];
+// var_dump($new_syain_id);
+// var_dump($new_name);
+// var_dump($new_dap_id);
+// var_dump($new_seibetu);
+
+try {
+	// DBへ接続
+	$dbh = new PDO("mysql:host=localhost;dbname=syainkanri_sisutemu;charset=utf8",'root','');
+    // $dsn = 'mysql:dbname = syainkanri_sisutemu; host = localhost; charset = utf8';
+
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	// SQL作成
+	$sql = "SELECT FROM syain WHERE 'syain' 'id'=1";
+
+	// SQL実行
+	$res = $dbh->prepare($sql);
+// var_dump($res);
+$params = array(':syain_id' =>$new_syain_id,':name' => $new_name,':dap_id' => $new_dap_id ,':seibetu' => $new_seibetu);
+
+// SQL文を実行する準備
+
+// SQLを実行
+$res->execute($params);
+// レコードの取得
+$rows = $res->fetchAll();
+// var_dump($rows);
+	// 取得したデータを出力
+	
+
+} catch(PDOException $e) {
+	echo $e->getMessage();
+	die();
+}
+
+// 接続を閉じる
+$dbh = null;
+
+}
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>  
+  
+  <title>削除</title>
+  <style>
+    h1{
+        font-size: 30px;
+    }
+    body {
+            width:60%;
+            padding:20px 5%;
+            margin:auto;}
+    p{
+        font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+        font-size: 20px;
+        "bangou"=float:right;
+    }
+    h4{
+        font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+    }
+  </style>
+    <form action="sisutemu.php" method="post">
+        <body>
+            <h1>iYell 社員管理システム</h1>
+
+            <p>この情報を削除しますか⁈</p>
+                <table>
+                <?php foreach( $rows as $value ) {
+	    ?>
+                    <tr><th>ID</th><td><?php echo "$value[id]<br>";?></td></tr>
+                    <tr>
+                        <th>社員番号</th><td> <?php echo "$value[syain_id]<br>";?> </td>
+                        <!-- <td><input type="" name="bangou" ></td> -->
+                    </tr>
+                    <tr>
+                        <th>氏名</th><td> <?php echo "$value[name]<br>";?> </td>
+                        <!-- <td><input type="" name="name"></td> -->
+                    </tr>
+                    <tr>
+                        <th>部署名</th><td> <?php echo "$value[dap_id]<br>";?> </td>
+                        <!-- <td><input type="" name="b-name"></td> -->
+                    </tr>
+                    <tr>
+                        <th>性別</th>
+                        <td> <?php echo "$value[seibetu]<br>";?> </td>
+                    </tr>
+                    <tr>
+                            <td><input type="button" name="削除" value="削除"></td>
+                    </tr>
+    
+
+    <?php    }?>
+            </table>  
+        </body>
+    </form>
+        <a href="http://localhost/syainnkannri_sisutemu/sisutemu.php">戻る</a>
+    </head>
+</html>
+
+
+syain,id,syain_id,name,dap_id,seibetu,bsyo,dap_id,dap_name,dap_B_name,dap_G_name
